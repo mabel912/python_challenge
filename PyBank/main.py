@@ -2,7 +2,6 @@ import os
 import csv
 
 
-
 budgetpath = os.path.join("..","..","Downloads","budget_data.csv")
 TM = 0
 Total = 0
@@ -13,10 +12,13 @@ MinProfit = 0
 MinProfitDate = ""
 
 
+
 with open(budgetpath, newline ='') as csvfile:
     budgetdata = csv.reader(csvfile, delimiter =',')
     csv_header = next(budgetdata)
+  
     print(csv_header)    
+
     for row in budgetdata:
         TM = 1 + TM
         Total = Total + int(row[1])
@@ -31,10 +33,12 @@ with open(budgetpath, newline ='') as csvfile:
             MinProfitDate = row[0]
 
 
-
-
+print("Financial Analysis")
+print("----------------------------------------------------------------------------------------------")
 print("Total Months: " + str(TM))
 print("Total: " + str(Total))
 print("Average Change: " + str(Aveg))
 print("Greatest Increase in Profits occured on Date: " + MaxProfitDate + " with an amount of " + str(MaxProfit))
 print("Greatest Decrease in Profits occured on Date: " + MinProfitDate + " with an amount of " + str(MinProfit))
+
+
